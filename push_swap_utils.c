@@ -50,20 +50,56 @@ int	ft_atoi(char *nptr)
 	return (sign * numb);
 }
 
-void    arr_add_stack(char **tver, stack a)
+Node    *new_node(long val)
 {
-    int i;
-    Node *temp;
+    Node    *ret;
+
+    ret = (Node *)malloc(sizeof(Node));
+    ret->value = val;
+    ret->prev = 0;
+    ret->next = 0;
+    return (ret);
+}
+
+void    arr_add_stack(char **tver, stack *a)
+{
+    int     i;
+    Node    *temp;
 
     i = 0;
     while(tver[i] != 0)
     {
-        if(a.first = 0)
-        
-        temp = a.last;
-        a.last = (Node *)malloc(sizeof(Node));
-        a.last->value = ft_atoi(tver[i]);
-        a.last->next = 0;
-        a.last->prev = temp;
+        if((*a).first == 0)
+        {
+            (*a).first = new_node(ft_atoi(tver[i]));
+            (*a).last = (*a).first;
+            continue; 
+        }
+        (*a).last->next = new_node(ft_atoi(tver[i]));
+        (*a).last->next->prev = (*a).last; 
+        (*a).last = (*a).last->next;
+        ++i;
+    }
+}
+
+void    ft_delete_arr(char **tver)
+{
+    int i;
+
+    i = 0;
+    while(tver[i] != 0)
+        free(tver[i++]);
+    free(tver);
+}
+
+void    print_stack(stack *a)
+{
+    Node    *temp;
+
+    temp = (*a).first;
+    while (temp != 0)
+    {
+        printf("%ld\n", temp->value);
+        temp = temp->next;
     }
 }

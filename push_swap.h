@@ -3,6 +3,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+#include <stdio.h>
 
 typedef struct Node
 {
@@ -24,7 +25,8 @@ void	ft_write_word(char *str, int word_count, char c, char **arr);
 char	**ft_split(char *str, char c);
 int     ft_atoi(char *nptr);
 int     checker(int argc, char **arr);
-void    arr_add_list(char **tver);
+void    arr_add_stack(char **tver, stack *a);
 void    ft_delete_arr(char **tver);
 void    free_stack();
+void    print_stack(stack *a);
 #endif
