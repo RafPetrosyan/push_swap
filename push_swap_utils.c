@@ -73,6 +73,7 @@ void    arr_add_stack(char **tver, stack *a)
         {
             (*a).first = new_node(ft_atoi(tver[i]));
             (*a).last = (*a).first;
+            ++i;
             continue; 
         }
         (*a).last->next = new_node(ft_atoi(tver[i]));
@@ -96,10 +97,10 @@ void    print_stack(stack *a)
 {
     Node    *temp;
 
-    temp = (*a).first;
+    temp = (*a).last;
     while (temp != 0)
     {
         printf("%ld\n", temp->value);
-        temp = temp->next;
+        temp = temp->prev;
     }
 }

@@ -1,6 +1,13 @@
 #include "push_swap.h"
 
-int	ft_get_word_count(char *str, char c)
+int	check_isspace(char c)
+{
+    if (((c >= 9 && c <= 13) || c == ' '))
+        return(1);
+    return (0);
+}
+
+int	ft_get_word_count(char *str)
 {
 	int	i;
 	int	word_count;
@@ -9,15 +16,15 @@ int	ft_get_word_count(char *str, char c)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if ((i == 0 && str[i] != c) || (i != 0
-				&& str[i] != c && str[i - 1] == c))
+		if ((i == 0 && !check_isspace(str[i])) || (i != 0
+				&& !check_isspace(str[i]) && check_isspace(str[i - 1])))
 			++word_count;
 		++i;
 	}
 	return (word_count);
 }
 
-int	ft_word_mall(char *str, int word_count, char c, char **arr)
+int	ft_word_mall(char *str, int word_count, char **arr)
 {
 	int	i;
 	int	arr_index;
@@ -28,9 +35,9 @@ int	ft_word_mall(char *str, int word_count, char c, char **arr)
 	i = 0;
 	while (str[i] != '\0' && arr_index < word_count)
 	{
-		while (str[i] == c)
+		while (check_isspace(str[i]))
 			++i;
-		while (str[i] != c && str[i] != '\0')
+		while (!check_isspace(str[i]) && str[i] != '\0')
 		{
 			++word_len;
 			++i;
@@ -44,7 +51,7 @@ int	ft_word_mall(char *str, int word_count, char c, char **arr)
 	return (0);
 }
 
-void	ft_write_word(char *str, int word_count, char c, char **arr)
+void	ft_write_word(char *str, int word_count, char **arr)
 {
 	int	i;
 	int	arr_index;
@@ -55,9 +62,9 @@ void	ft_write_word(char *str, int word_count, char c, char **arr)
 	while (str[i] != '\0' && arr_index < word_count)
 	{
 		word_len = 0;
-		while (str[i] == c)
+		while (check_isspace(str[i]))
 			++i;
-		while (str[i] != c && str[i] != '\0')
+		while (!check_isspace(str[i]) && str[i] != '\0')
 		{
 			arr[arr_index][word_len] = str[i];
 			++word_len;
@@ -68,20 +75,20 @@ void	ft_write_word(char *str, int word_count, char c, char **arr)
 	}
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char *str)
 {
 	int		word_count;
 	char	**arr;
 
 	if (str == 0)
 		return (0);
-	word_count = ft_get_word_count(str, c);
+	word_count = ft_get_word_count(str);
 	arr = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (arr == 0)
 		return (0);
-	if (ft_word_mall(str, word_count, c, arr) == -1)
+	if (ft_word_mall(str, word_count, arr) == -1)
 		return (0);
-	ft_write_word(str, word_count, c, arr);
+	ft_write_word(str, word_count, arr);
 	arr[word_count] = 0;
 	return (arr);
 }
