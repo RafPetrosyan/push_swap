@@ -79,6 +79,11 @@ void    arr_add_stack(char **tver, t_stack **a)
     i = 0;
     while(tver[i] != 0)
     {
+        temp = new_node(ft_atoi(tver[i], tver, a));
+        temp->next = *a;
+        *a = temp;
+        ++i;
+       /* 
         if(*a == 0)
         {
             *a = new_node(ft_atoi(tver[i], tver, a));
@@ -92,6 +97,7 @@ void    arr_add_stack(char **tver, t_stack **a)
         }
         temp->next = new_node(ft_atoi(tver[i],tver, a));
         ++i;
+        */
     }
 }
 
