@@ -12,11 +12,9 @@ int checker(int argc, char **arr)
         j = 0;
         while (arr[i][j] != '\0')
         {
-            if(!((arr[i][j] >= '0' && arr[i][j] <= '9') || arr[i][j] == ' ' || arr[i][j] == '+' || arr[i][j] == '-'))
+            if (!((arr[i][j] >= '0' && arr[i][j] <= '9') || arr[i][j] == ' ' || arr[i][j] == '+' || arr[i][j] == '-'))
                 return (1);
-            if((arr[i][j] == '-' || arr[i][j] == '+') && !(arr[i][j + 1] >= '0' && arr[i][j + 1] <= '9'))
-                return (1);
-            if((arr[i][j] == '0' && arr[i][j + 1] >= '0' && arr[i][j + 1] <= '9'))
+            if ((arr[i][j] == '-' || arr[i][j] == '+') && !(arr[i][j + 1] >= '0' && arr[i][j + 1] <= '9'))
                 return (1);
             ++j;
         }
@@ -25,13 +23,15 @@ int checker(int argc, char **arr)
     return (0);
 }
 
-int	ft_atoi(char *nptr)
+int	ft_atoi(char *nptr, char **arr, t_stack **a)
 {
-	int	i;
-	int	sign;
-	int	numb;
+	int         i;
+    int         n;
+	int         sign;
+	long long   numb;
 
 	i = 0;
+    n = 0;
 	sign = 1;
 	numb = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
@@ -46,39 +46,51 @@ int	ft_atoi(char *nptr)
 	{
 	    numb = numb * 10 + nptr[i] - '0';
 		++i;
+        if(numb != 0)
+            ++n;
 	}
-	return (sign * numb);
+    if (n <= 11)
+    {
+        if (!(sign * numb > 2147483647 || sign * numb < -2147483648))
+            return (sign * numb);
+    }
+    ft_delete_arr(arr);
+    free_stack(a);
+    exit(1);
 }
 
-Node    *new_node(long val)
+t_stack    *new_node(long val)
 {
-    Node    *ret;
+    t_stack    *ret;
 
-    ret = (Node *)malloc(sizeof(Node));
+    ret = (t_stack *)malloc(sizeof(t_stack));
+    if (ret == 0)
+        exit(1);
     ret->value = val;
-    ret->prev = 0;
     ret->next = 0;
     return (ret);
 }
 
-void    arr_add_stack(char **tver, stack *a)
+void    arr_add_stack(char **tver, t_stack **a)
 {
     int     i;
-    Node    *temp;
+    t_stack    *temp;
 
     i = 0;
     while(tver[i] != 0)
     {
-        if((*a).first == 0)
+        if(*a == 0)
         {
-            (*a).first = new_node(ft_atoi(tver[i]));
-            (*a).last = (*a).first;
+            *a = new_node(ft_atoi(tver[i], tver, a));
             ++i;
-            continue; 
+            continue;
         }
-        (*a).last->next = new_node(ft_atoi(tver[i]));
-        (*a).last->next->prev = (*a).last; 
-        (*a).last = (*a).last->next;
+        temp = *a;
+        while(temp->next != 0)
+        {
+            temp = temp->next;
+        }
+        temp->next = new_node(ft_atoi(tver[i],tver, a));
         ++i;
     }
 }
@@ -93,14 +105,66 @@ void    ft_delete_arr(char **tver)
     free(tver);
 }
 
-void    print_stack(stack *a)
+void    free_stack(t_stack *a)
 {
-    Node    *temp;
+    if (a->next != 0)
+        free_stack(a->next);
+    free(a);
+}
 
-    temp = (*a).last;
+void    print_stack(t_stack *a)
+{
+    t_stack    *temp;
+
+    temp = a;
     while (temp != 0)
     {
-        printf("%ld\n", temp->value);
-        temp = temp->prev;
+        printf("%d %d\n", temp->index, temp->value);
+        temp = temp->next;
+    }
+}
+
+int validacia1(t_stack **a)
+{
+    t_stack *temp1;
+    t_stack *temp2;
+
+    temp1 = *a;
+    if (temp1 == 0)
+        return (0);
+    
+    while (temp1->next != 0)
+    {
+        temp2 = temp1->next;
+        while (temp2 != 0)
+        {
+            if (temp1->value == temp2->value)
+                exit(1);
+            temp2 = temp2->next;
+        }
+        temp1 = temp1->next;
+    }
+    return (0);
+}
+
+void indexavorel(t_stack **a)
+{
+    t_stack *temp1;
+    t_stack *temp2;
+    int i;
+
+    temp2 = *a;
+    while (temp2 != 0)
+    {
+        temp1 = *a;
+        i = 0;
+        while (temp1 != 0)
+        {
+            if (temp2->value > temp1->value)
+                ++i;
+            temp1 = temp1->next;
+        }
+        temp2->index = i;
+        temp2 = temp2->next;
     }
 }
