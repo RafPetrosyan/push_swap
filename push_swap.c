@@ -25,7 +25,15 @@ int main(int argc, char **argv)
         }
         validacia1(&a);
         indexavorel(&a);
+        printf("print stack a\n");
         print_stack(a);
+        printf("print stack b\n");
+        print_stack(b);
+        rra(&a);
+        printf("print stack a\n");
+        print_stack(a);
+        printf("print stack b\n");
+        print_stack(b);
     }
     return (0);
 }

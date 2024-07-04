@@ -83,21 +83,6 @@ void    arr_add_stack(char **tver, t_stack **a)
         temp->next = *a;
         *a = temp;
         ++i;
-       /* 
-        if(*a == 0)
-        {
-            *a = new_node(ft_atoi(tver[i], tver, a));
-            ++i;
-            continue;
-        }
-        temp = *a;
-        while(temp->next != 0)
-        {
-            temp = temp->next;
-        }
-        temp->next = new_node(ft_atoi(tver[i],tver, a));
-        ++i;
-        */
     }
 }
 

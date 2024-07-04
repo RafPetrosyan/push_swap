@@ -24,4 +24,11 @@ void    free_stack();
 void    print_stack(t_stack *a);
 void    indexavorel(t_stack **a);
 int     validacia1(t_stack **a);
+void    pa(t_stack **a, t_stack **b);
+void    ss(t_stack **a, t_stack **b);
+void    sa(t_stack **a);
+void    sb(t_stack **b);
+void    ra(t_stack **a);
+void    rb(t_stack **b);
+void    rra(t_stack **a);
 #endif
