@@ -2,9 +2,9 @@
 
 int	check_isspace(char c)
 {
-    if (((c >= 9 && c <= 13) || c == ' '))
-        return(1);
-    return (0);
+	if (((c >= 9 && c <= 13) || c == ' '))
+		return (1);
+	return (0);
 }
 
 int	ft_get_word_count(char *str)
@@ -87,7 +87,10 @@ char	**ft_split(char *str)
 	if (arr == 0)
 		return (0);
 	if (ft_word_mall(str, word_count, arr) == -1)
+	{
+		ft_delete_arr(arr);
 		return (0);
+	}
 	ft_write_word(str, word_count, arr);
 	arr[word_count] = 0;
 	return (arr);

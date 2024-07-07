@@ -18,18 +18,24 @@ int main(int argc, char **argv)
         {
             tver = ft_split(argv[i]);
             if(tver == 0 || *tver == 0)
+            {
+                free_stack(a);
+                if (tver != 0)
+                    ft_delete_arr(tver);
                 exit(write(2, "Error\n", 6));
+            }
             arr_add_stack(tver, &a);
             ft_delete_arr(tver);
             ++i;
         }
-        validacia1(&a);
-        indexavorel(&a);
+        validacia_krk(a);
+        indexavorel(a);
         printf("print stack a\n");
         print_stack(a);
         printf("print stack b\n");
         print_stack(b);
-        rra(&a);
+        validacia_krk(a);
+        printf("--------------------------------------\n");
         printf("print stack a\n");
         print_stack(a);
         printf("print stack b\n");
