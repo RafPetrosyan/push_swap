@@ -1,8 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/07/13 14:11:23 by rafpetro          #+#    #+#              #
+#    Updated: 2024/07/13 14:11:28 by rafpetro         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCS)
 
-SRCS = push_swap.c push_swap_utils.c ft_split.c operations1.c operations2.c
+SRCS = push_swap.c push_swap_utils.c ft_split.c operations1.c operations2.c sort.c
 
 BONUS_SRCS = 
 

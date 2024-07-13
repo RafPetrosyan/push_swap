@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 14:10:57 by rafpetro          #+#    #+#             */
+/*   Updated: 2024/07/13 14:10:59 by rafpetro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	checker(int argc, char **arr)
@@ -34,7 +46,7 @@ int	ft_atoi(char *nptr, char **arr, t_stack **a)
 
 	i = 0;
 	n = 0;
-	sign = 1;
+	sign = 1; 
 	numb = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		++i;
@@ -82,9 +94,17 @@ void	arr_add_stack(char **tver, t_stack **a)
 	i = 0;
 	while (tver[i] != 0)
 	{
-		temp = new_node(ft_atoi(tver[i], tver, a));
-		temp->next = *a;
-		*a = temp;
+		if (*a == 0)
+		{
+			*a = new_node(ft_atoi(tver[i], tver, a));
+			return ;
+		}
+		temp = *a;
+		while (temp->next != 0)
+		{
+			temp = temp->next;
+		}
+		temp->next = new_node(ft_atoi(tver[i], tver, a));
 		++i;
 	}
 }
@@ -110,9 +130,11 @@ void	free_stack(t_stack *a)
 
 void	print_stack(t_stack *a)
 {
+	if (a == 0)
+		return ;
 	while (a != 0)
 	{
-		printf("%d %d\n", a->index, a->value);
+		printf("%d	%d\n", a->index, a->value);
 		a = a->next;
 	}
 }
@@ -165,15 +187,27 @@ void	indexavorel(t_stack *a)
 int	check_sort(t_stack *a)
 {
 	t_stack	*temp;
-	int		val;
 
-	temp = a;
-	val = a->value;
+	temp = a->next;
 	while (temp != 0)
 	{
-		if (temp->value < val)
+		if (temp->value < a->value)
 			return (1);
+		a = a->next;
 		temp = temp->next;
 	}
 	return (0);
+}
+
+int	stack_qanak(t_stack *a)
+{
+	int	n;
+
+	n = 0;
+	while (a != 0)
+	{
+		++n;
+		a = a->next;
+	}
+	return (n);
 }

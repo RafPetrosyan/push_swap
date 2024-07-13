@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 14:10:31 by rafpetro          #+#    #+#             */
+/*   Updated: 2024/07/13 14:10:33 by rafpetro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int main(int argc, char **argv)
@@ -30,16 +42,8 @@ int main(int argc, char **argv)
         }
         validacia_krk(a);
         indexavorel(a);
-        printf("print stack a\n");
         print_stack(a);
-        printf("print stack b\n");
-        print_stack(b);
-        validacia_krk(a);
-        printf("--------------------------------------\n");
-        printf("print stack a\n");
-        print_stack(a);
-        printf("print stack b\n");
-        print_stack(b);
+        sort_3(&a);
     }
     return (0);
 }

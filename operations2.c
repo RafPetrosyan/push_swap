@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   operations2.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 14:10:10 by rafpetro          #+#    #+#             */
+/*   Updated: 2024/07/13 14:10:20 by rafpetro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	ra(t_stack **a)
@@ -37,7 +49,7 @@ void	rra(t_stack **a)
 	t_stack	*temp1;
 	t_stack	*temp2;
 
-	write(1, "rra\n", 3);
+	write(1, "rra\n", 4);
 	if (*a == 0 || (*a)->next == 0)
 		return ;
 	temp1 = *a;
@@ -57,7 +69,7 @@ void	rrb(t_stack **a)
 	t_stack	*temp1;
 	t_stack	*temp2;
 
-	write(1, "rrb\n", 3);
+	write(1, "rrb\n", 4);
 	if (*a == 0 || (*a)->next == 0)
 		return ;
 	temp1 = *a;

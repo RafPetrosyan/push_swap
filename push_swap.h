@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 14:10:43 by rafpetro          #+#    #+#             */
+/*   Updated: 2024/07/13 14:10:48 by rafpetro         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -32,5 +44,7 @@ void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rra(t_stack **a);
 int		check_sort(t_stack *a);
+void	sort_3(t_stack **a);
+int		stack_qanak(t_stack *a);
 
 #endif
