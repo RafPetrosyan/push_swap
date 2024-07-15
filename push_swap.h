@@ -44,13 +44,15 @@ void	sb(t_stack **b);
 void	ra(t_stack **a);
 void	rb(t_stack **b);
 void	rra(t_stack **a);
+void	rrb(t_stack **a);
 int		check_sort(t_stack *a);
 void	sort_3(t_stack **a);
 void	sort_4_6(t_stack **a, t_stack **b);
 int		stack_qanak(t_stack *a);
 void	sort_butterfly(t_stack **a, t_stack **b);
 void	patrastel_pushi(int index, t_stack **a);
-int		get_offset(int n);
+void	gtnel(t_stack **b, int qanak);
 int		log2_n(int n);
+int		log5_n(int x);
 
 #endif

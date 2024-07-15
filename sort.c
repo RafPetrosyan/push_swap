@@ -45,10 +45,12 @@ void	sort_4_6(t_stack **a, t_stack **b)
 void	sort_butterfly(t_stack **a, t_stack **b)
 {
 	int		i1;
+	int		qanak;
 	int		offset;
 
 	i1 = 0;
-	offset = log2_n(2 * stack_qanak(*a)) * log5_n(0.25 * stack_qanak(*a));
+	qanak = stack_qanak(*a);
+	offset = log2_n(2 * qanak) * log5_n(0.25 * qanak);
 	while (*a != 0)
 	{
 		if ((*a)->index <= i1)
@@ -62,7 +64,14 @@ void	sort_butterfly(t_stack **a, t_stack **b)
 			pb(a, b);
 			++i1;
 		}
-		ra(a);
+		else
+			ra(a);
+	}
+	while (*b != 0)
+	{
+		gtnel(b, qanak);
+		pa(a, b);
+		--qanak;
 	}
 }
 
@@ -90,7 +99,7 @@ void	patrastel_pushi(int index, t_stack **a)
 	}
 }
 
-void	gtnel(t_stack **b, int *qanak)
+void	gtnel(t_stack **b, int qanak)
 {
 	int	i;
 	t_stack	*temp;
@@ -102,7 +111,7 @@ void	gtnel(t_stack **b, int *qanak)
 		++i;
 		temp = temp->next;
 	}
-	if (i <= *qanak / 2)
+	if (i <= qanak / 2)
 	{
 		while ((*b)->index != qanak - 1)
 			rb(b);

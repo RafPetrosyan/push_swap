@@ -12,41 +12,6 @@
 
 #include "push_swap.h"
 
-int	log2_n(int x)
-{
-	int	i;
-	int	count;
-
-	i = 2;
-	count = 0;
-	while (i < x)
-	{
-		count++;
-		i *= 2;
-	}
-	return (count + 1);
-}
-
-int	log5_n(int x)
-{
-	int	i;
-	int	count;
-
-	i = 5;
-	count = 0;
-	while (i < x)
-	{
-		count++;
-		i *= 5;
-	}
-	return (count + 1);
-}
-
-int get_offset(int n)
-{
-	return (log2_n(2*n) * log5_n(0.25*n));
-} 
-
 int main(int argc, char **argv)
 {
     int     i;
@@ -77,10 +42,9 @@ int main(int argc, char **argv)
         }
         validacia_krk(a);
         indexavorel(a);
+        printf("%d\n", log2_n(2 * stack_qanak(a)) * log5_n(0.25 * stack_qanak(a)));
         sort_butterfly(&a, &b);
         print_stack(a);
     }
-    printf("%d\n", log5_n(500));
-    printf("%d\n", log5_n(500));
     return (0);
 }
