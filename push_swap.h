@@ -37,6 +37,7 @@ void	print_stack(t_stack *a);
 void	indexavorel(t_stack *a);
 int		validacia_krk(t_stack *a);
 void	pa(t_stack **a, t_stack **b);
+void	pb(t_stack **a, t_stack **b);
 void	ss(t_stack **a, t_stack **b);
 void	sa(t_stack **a);
 void	sb(t_stack **b);
@@ -45,6 +46,7 @@ void	rb(t_stack **b);
 void	rra(t_stack **a);
 int		check_sort(t_stack *a);
 void	sort_3(t_stack **a);
+void	sort_4_6(t_stack **a, t_stack **b);
 int		stack_qanak(t_stack *a);
 
 #endif

@@ -45,11 +45,11 @@ void	ss(t_stack **a, t_stack **b)
 	sb(b);
 }
 
-void	pa(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
 
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 	if (*a == 0)
 		return ;
 	temp = (*a)->next;
@@ -58,11 +58,11 @@ void	pa(t_stack **a, t_stack **b)
 	(*a) = temp;
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
 	t_stack	*temp;
 
-	write(1, "pb\n", 3);
+	write(1, "pa\n", 3);
 	if (*b == 0)
 		return ;
 	temp = (*b)->next;

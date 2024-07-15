@@ -42,8 +42,7 @@ int main(int argc, char **argv)
         }
         validacia_krk(a);
         indexavorel(a);
-        print_stack(a);
-        sort_3(&a);
+        sort_4_6(&a,&b);
     }
     return (0);
 }
