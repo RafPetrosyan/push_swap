@@ -211,3 +211,33 @@ int	stack_qanak(t_stack *a)
 	}
 	return (n);
 }
+
+int	log2_n(int x)
+{
+	int	i;
+	int	count;
+
+	i = 2;
+	count = 0;
+	while (i < x)
+	{
+		count++;
+		i *= 2;
+	}
+	return (count + 1);
+}
+
+int	log5_n(int x)
+{
+	int	i;
+	int	count;
+
+	i = 5;
+	count = 0;
+	while (i < x)
+	{
+		count++;
+		i *= 5;
+	}
+	return (count + 1);
+}

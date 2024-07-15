@@ -48,5 +48,9 @@ int		check_sort(t_stack *a);
 void	sort_3(t_stack **a);
 void	sort_4_6(t_stack **a, t_stack **b);
 int		stack_qanak(t_stack *a);
+void	sort_butterfly(t_stack **a, t_stack **b);
+void	patrastel_pushi(int index, t_stack **a);
+int		get_offset(int n);
+int		log2_n(int n);
 
 #endif
