@@ -14,7 +14,8 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror -I$(INCS)
 
-SRCS = push_swap.c push_swap_utils.c ft_split.c operations1.c operations2.c sort.c
+SRCS = push_swap.c push_swap_utils.c ft_split.c operations1.c operations2.c \
+	sort_utils1.c sort_utils2.c push_stack.c validacia.c stack_functions.c
 
 BONUS_SRCS = 
 

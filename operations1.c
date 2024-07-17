@@ -12,11 +12,12 @@
 
 #include "push_swap.h"
 
-void	sa(t_stack **a)
+void	sa(t_stack **a, int flag)
 {
 	t_stack	*temp;
 
-	write(1, "sa\n", 3);
+	if (flag == 0)
+		write(1, "sa\n", 3);
 	if ((*a) == 0 || (*a)->next == 0)
 		return ;
 	temp = (*a)->next;
@@ -25,11 +26,12 @@ void	sa(t_stack **a)
 	(*a) = temp;
 }
 
-void	sb(t_stack **b)
+void	sb(t_stack **b, int flag)
 {
 	t_stack	*temp;
 
-	write(1, "sb\n", 3);
+	if (flag == 0)
+		write(1, "sb\n", 3);
 	if ((*b) == 0 || (*b)->next == 0)
 		return ;
 	temp = (*b)->next;
@@ -41,8 +43,8 @@ void	sb(t_stack **b)
 void	ss(t_stack **a, t_stack **b)
 {
 	write(1, "ss\n", 3);
-	sa(a);
-	sb(b);
+	sa(a, 1);
+	sb(b, 1);
 }
 
 void	pb(t_stack **a, t_stack **b)

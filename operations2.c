@@ -12,13 +12,14 @@
 
 #include "push_swap.h"
 
-void	ra(t_stack **a)
+void	ra(t_stack **a, int flag)
 {
 	t_stack	*temp;
 
 	if (*a == 0)
 		return ;
-	write(1, "ra\n", 3);
+	if (flag == 0)
+		write(1, "ra\n", 3);
 	temp = *a;
 	while (temp->next != 0)
 		temp = temp->next;
@@ -28,11 +29,12 @@ void	ra(t_stack **a)
 	*a = temp;
 }
 
-void	rb(t_stack **b)
+void	rb(t_stack **b, int flag)
 {
 	t_stack	*temp;
 
-	write(1, "rb\n", 3);
+	if (flag == 0)
+		write(1, "rb\n", 3);
 	temp = *b;
 	if (*b == 0 || (*b)->next == 0)
 		return ;
@@ -44,12 +46,20 @@ void	rb(t_stack **b)
 	*b = temp;
 }
 
-void	rra(t_stack **a)
+void	rr(t_stack **a, t_stack **b)
+{
+	write(1, "rr\n", 3);
+	ra(a, 1);
+	rb(b, 1);
+}
+
+void	rra(t_stack **a, int flag)
 {
 	t_stack	*temp1;
 	t_stack	*temp2;
 
-	write(1, "rra\n", 4);
+	if (flag == 0)
+		write(1, "rra\n", 4);
 	if (*a == 0 || (*a)->next == 0)
 		return ;
 	temp1 = *a;
@@ -64,12 +74,13 @@ void	rra(t_stack **a)
 	*a = temp1;
 }
 
-void	rrb(t_stack **a)
+void	rrb(t_stack **a, int flag)
 {
 	t_stack	*temp1;
 	t_stack	*temp2;
 
-	write(1, "rrb\n", 4);
+	if (flag == 0)
+		write(1, "rrb\n", 4);
 	if (*a == 0 || (*a)->next == 0)
 		return ;
 	temp1 = *a;
