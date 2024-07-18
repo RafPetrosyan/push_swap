@@ -89,13 +89,13 @@ void	ft_delete_arr(char **tver)
 	free(tver);
 }
 
-void	print_stack(t_stack *a)
-{
-	if (a == 0)
-		return ;
-	while (a != 0)
-	{
-		printf("%d\n", a->value);
-		a = a->next;
-	}
-}
+// void	print_stack(t_stack *a)
+// {
+// 	if (a == 0)
+// 		return ;
+// 	while (a != 0)
+// 	{
+// 		printf("%d\n", a->value);
+// 		a = a->next;
+// 	}
+// }
