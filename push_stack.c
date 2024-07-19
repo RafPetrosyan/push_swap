@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rafpetro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: rafpetro <rafpetro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 15:18:26 by rafpetro          #+#    #+#             */
-/*   Updated: 2024/07/16 15:18:28 by rafpetro         ###   ########.fr       */
+/*   Updated: 2024/07/19 10:57:41 by rafpetro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	push_astack(int argc, char **argv, t_stack **a)
 			free_stack(*a);
 			if (tver != 0)
 				ft_delete_arr(tver);
-			exit(write(2, "Error\n", 6));
 		}
 		arr_add_stack(tver, a);
 		ft_delete_arr(tver);
