@@ -45,4 +45,4 @@ jobs:
             -Dsonar.organization=rafpetrosyan
             -Dsonar.projectKey=RafPetrosyan_push_swap
             -Dsonar.sources=.
-            -Dsonar.cfamily.compile-commands=bw-output/compile_commands.json
+            -Dsonar.cfamily.build-wrapper-output=bw-output
