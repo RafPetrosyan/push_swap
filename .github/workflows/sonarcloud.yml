@@ -38,7 +38,11 @@ jobs:
 
       - name: Run SonarCloud analysis
         uses: SonarSource/sonarcloud-github-action@v2
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
-          organization: "rafpetrosyan"
-          projectKey: "RafPetrosyan_push_swap"
-          token: ${{ secrets.SONAR_TOKEN }}
+          args: >
+            -Dsonar.organization=rafpetrosyan
+            -Dsonar.projectKey=RafPetrosyan_push_swap
+            -Dsonar.sources=.
+            -Dsonar.cfamily.build-wrapper-output=bw-output
