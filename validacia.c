@@ -76,3 +76,4 @@ int	validacia_krk(t_stack *a)
 	}
 	return (0);
 }
+ 
